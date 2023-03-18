@@ -1,0 +1,34 @@
+# python App que envia alertas para clientes que estão atrassados com os pagamentos.
+#instale a biblioteca Twilio usando pip:
+pip install twilio
+
+#2. importe os modulos necessários:
+from twilio.rest import client
+import datetime
+
+#3. defina as informações do cliente:
+cliente = {
+"nome" : "João Silva",
+"numero_telefone":"+5511999999999
+"data_de_vencimento":"datetime.date(2023,3,20),
+"valor_devido":500.0
+}
+
+#verifique s eo pagamento está atrassado:
+hoje = datetime.date.today()
+if hoje > cliente["data_vencimento"]:
+dias_atrassado = (hoje_cliente["data_vencimento"]).days
+mensagem = f "olá {cliente['nome']} O seu pagamento está atrassado há {dias_atrassado} dias. O valor devido é R$ {cliente['valor_devido']}
+
+#envie a mensagem usando a api do Twilio
+
+account_sid = 'sua_account_sid'
+auth_token = 'seu_auth_token'
+client = client(account_sid, auth_token)
+mensagem_twilio = client.messages. create(
+body = mensagem
+from = 'seu_numero_twilio',
+to = cliente ['numero_telefone']
+)
+
+print (mensagem_twilio.sid)
